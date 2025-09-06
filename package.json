@@ -1,0 +1,17 @@
+{
+  "name": "ts-ifro",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "tsx watch atvPratica/index.ts"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "tsx": "^4.20.5",
+    "typescript": "^5.9.2",
+    "uuid": "^12.0.0"
+  }
+}
