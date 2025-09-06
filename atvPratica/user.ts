@@ -9,4 +9,4 @@ interface user{
     permission: permission,
 }
 
-export default user
+export default user;
