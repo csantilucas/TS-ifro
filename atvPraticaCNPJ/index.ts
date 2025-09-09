@@ -21,9 +21,6 @@ let CNPJ: string = prompt("Digite um CNPJ para ser validado (com ou sem caracter
 
 
 
-
-//digitos verificadores
-
 //função para validar o cnpj
 
 function validaCNPJ(CNPJ: string) {
