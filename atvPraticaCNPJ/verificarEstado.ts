@@ -14,7 +14,7 @@ export function retornaEstado(cnpj: string) {
 
 function formatarMensagem (estadosString: string, cnpj: string): string { 
     const estadosArray = estadosString.split(", ") // Agora funciona, pois `estadosString` é uma string válida.
-    return `O CNPJ ${cnpj} foi emitido na região do estado(s) de: ${estadosArray.join(", ")}`
+    return `O CNPJ ${cnpj} foi emitido na ${cnpj.charAt(7)}° região fiscal pertencente estado(s) de: ${estadosArray.join(", ")}`
 }
 
 function buscarEstado (cnpj: string): estados | undefined { 
