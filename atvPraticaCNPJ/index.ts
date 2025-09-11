@@ -1,5 +1,6 @@
 import { cnpjArray, cnpjarray, cnpjArrayVerificado } from "./cnpj";
 import { primeiroDigito, segundoDigito } from "./verificaDigitos";
+import { retornaEstado } from "./verificarEstado";
 
 let valido: boolean = false
 //npm run dev
@@ -27,7 +28,7 @@ function validaCNPJ(CNPJ: string) {
     //arrays para guardar os numeros do cnpj e o cnpj com os digitos verificadores
     cnpjArray
     cnpjArrayVerificado
-
+    
     cnpjarray(CNPJ)
     //primeiro digito verificador
     primeiroDigito(cnpjArrayVerificado)
@@ -38,16 +39,20 @@ function validaCNPJ(CNPJ: string) {
     //console.log(cnpjArrayVerificado.toString())
     //verifica se o cnpj é valido ou não comparando os arrays
     if (cnpjArray.toString() === cnpjArrayVerificado.toString()) {
-        console.log(`CNPJ VÁLIDO`)
-        return valido=true
+        console.log(`CNPJ VÁLIDO\n`)
+        valido=true
+        retornaEstado(CNPJ)
+      
+    
     } else {
-        console.log(`CNPJ INVÁLIDO`)
-        return valido!
+        console.log(`CNPJ INVÁLIDO\n`)
+        valido!
     }
+    
 }
-
 validaCNPJ(CNPJ)
-console.log(valido)
+
+
 
 
 
