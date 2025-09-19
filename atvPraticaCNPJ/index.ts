@@ -4,7 +4,7 @@ import { retornaEstado } from "./verificarEstado";
 
 let valido: boolean = false
 //npm run dev
-let CNPJ: string = "84.615.491/0001-75";
+let CNPJ: string = "59.541.264/0001-75";
 
 /*
  uasar o console para digitar
