@@ -2,7 +2,7 @@ import { boleto, metodosPagamentos, statusBoleto } from "./metodos"
 import { fogao, geladeira, produto } from "./produtos"
 
 interface compra {
-    nome_produto: string
+    nome_produto: produto[]
     tipo_metodo: metodosPagamentos,
     boleto:boleto
 }
