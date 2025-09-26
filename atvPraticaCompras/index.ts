@@ -1,65 +1,64 @@
+
 import { metodoPgto, metodosPagamentos, status } from "./metodos"
 import { fogao, geladeira, produto } from "./produtos"
 
 
-const pix = metodosPagamentos.PIX
-const debito = metodosPagamentos.DEBITO
-const cartao = metodosPagamentos.CARTAO
-const boleto = metodosPagamentos.BOLETO
+
+let pix = metodosPagamentos.PIX
+let cartao = metodosPagamentos.CARTAO
+let boleto = metodosPagamentos.BOLETO
+let debito = metodosPagamentos.DEBITO
 
 
-const compra:compra[] = []
+
 
 interface compra {
-    nome_produto: produto[]
+    itens: {produto:produto,
+    quantidade:number}[]//carrinho[]
     tipo_metodo: metodosPagamentos,
     metodo: object
 }
 
+let compras: compra[] = []
 
 const dataPagamentoBoleto: Date = new Date('2025-11-24T15:28:05.604')
 
+function fazerCompra(itens:carrinho[], metodo: metodosPagamentos, status: status, parcelas?: number) {
 
-
-function fazerCompra(produtos: produto[], metodo: metodosPagamentos, status: status, parcelas?: number) {
-
-    let valorTotal = produtos.reduce((soma, produtoAtual) => {
-        return soma + produtoAtual.preco;
+    //reduce para somar os valores
+    let valorTotal = itens.reduce((soma, itemAtual) => {
+        const subtotal = itemAtual.produto.preco* itemAtual.quantidade;
+        return soma + subtotal;
     }, 0);
 
-
-
+    console.log(`Valor total dos produtos: R$ ${valorTotal.toFixed(2)}`);
     let tipoPagamento = metodoPgto(metodo, valorTotal, status, dataPagamentoBoleto, parcelas || 0);
 
     const compraCompleta: compra = {
-        nome_produto: produtos,
+        itens: itens,
         tipo_metodo: metodo,
         metodo: tipoPagamento
     }
-
-    console.log(`valor total da compra:${ valorTotal}
-produtos comprados:\n`)
-    produtos.forEach(element => {
-        let nomes = element.nome
-        let valor = element.preco
-        console.log(nomes,':' , valor)
-    });
-    console.log(`\n`)
-
-
-
-    compra.push(compraCompleta)
-   
-    return compraCompleta
+    
+  
+    compras.push(compraCompleta)
+    
+  
+    return compraCompleta;
 }
 
+interface carrinho{
+    produto:produto,
+    quantidade:number
+}
 
-fazerCompra([geladeira, fogao], pix, status.PENDENTE)
-console.log(compra)
+const meuCarrinho: carrinho[] = [
+    { produto: geladeira, quantidade: 1 },
+    { produto: fogao, quantidade: 2 }
+];
 
 
-
-
-
+fazerCompra(meuCarrinho, cartao, status.PENDENTE, 9);
+console.log(JSON.stringify(compras, null, 2));
 
 

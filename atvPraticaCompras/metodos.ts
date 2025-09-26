@@ -14,8 +14,6 @@ enum status {
 }
 
 
-
-
 export function metodoPgto(metodo: metodosPagamentos, valorTotal: number, status: status, dataPagamentoBoleto: Date, quantparcelas: number) {
 
         const pix = metodosPagamentos.PIX
@@ -29,7 +27,7 @@ export function metodoPgto(metodo: metodosPagamentos, valorTotal: number, status
                 case pix:
                         valorTotal = valorTotal * 0.95
 
-                        console.log(`desconto de 5% sobre o valor da compra. O valor com desconto ${valorTotal}`)
+                        console.log(`desconto de 5% sobre o valor da compra. O valor com desconto ${valorTotal.toFixed(2)}`)
                         let novoPgtoPix = gerarPgtoPix(valorTotal, status)
                         return novoPgtoPix
 
