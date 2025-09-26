@@ -58,8 +58,14 @@ export function metodoPgto(metodo: metodosPagamentos, valorTotal: number, status
                 case boleto:
                         let novoBoleto = gerarBoleto(valorTotal, status)
                         if (dataPagamentoBoleto > novoBoleto.dataVencimento) {
-                                console.log(`boleto em atraso, aplicar 2% de multa fixa + 0,1% ao dia de atraso.`)
+                                let getime: number = (dataPagamentoBoleto.getTime() - novoBoleto.dataVencimento.getTime()) / (1000 * 3600 * 24)
+                                let dias = Math.round(getime)
+                                console.log(`boleto em ${dias} dias de atraso, aplicar 2% de multa fixa + 0,1% ao dia de atraso.`)
                                 valorTotal = valorTotal * 1.2
+                                for (let i = 0; i < dias; i++) {
+                                        valorTotal=valorTotal * 1.01
+                                }
+                                
                         } else (
                                 console.log('o boleto esta em dia')
                         )

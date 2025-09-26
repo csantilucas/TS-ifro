@@ -1,6 +1,6 @@
 
 import { metodoPgto, metodosPagamentos, status } from "./metodos"
-import { fogao, geladeira, produto } from "./produtos"
+import { fogao, geladeira, produto, TV } from "./produtos"
 
 
 
@@ -21,7 +21,7 @@ interface compra {
 
 let compras: compra[] = []
 
-const dataPagamentoBoleto: Date = new Date('2025-11-24T15:28:05.604')
+const dataPagamentoBoleto: Date = new Date('2025-11-28T15:28:05.604')
 
 function fazerCompra(itens:carrinho[], metodo: metodosPagamentos, status: status, parcelas?: number) {
 
@@ -40,7 +40,7 @@ function fazerCompra(itens:carrinho[], metodo: metodosPagamentos, status: status
         metodo: tipoPagamento
     }
     
-  
+    console.log(`Valor Toltal:${tipoPagamento.valor.toFixed(2)}`)
     compras.push(compraCompleta)
     
   
@@ -54,11 +54,12 @@ interface carrinho{
 
 const meuCarrinho: carrinho[] = [
     { produto: geladeira, quantidade: 1 },
-    { produto: fogao, quantidade: 2 }
+    { produto: fogao, quantidade: 2 },
+    { produto:TV, quantidade:4}
 ];
 
 
-fazerCompra(meuCarrinho, cartao, status.PENDENTE, 9);
-console.log(JSON.stringify(compras, null, 2));
+fazerCompra(meuCarrinho, cartao, status.PENDENTE,5);
+//console.log(JSON.stringify(compras, null, 2));
 
 
