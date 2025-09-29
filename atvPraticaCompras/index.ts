@@ -10,20 +10,20 @@ let boleto = metodosPagamentos.BOLETO
 let debito = metodosPagamentos.DEBITO
 
 
-
+interface carrinho{
+    produto:produto,
+    quantidade:number
+}
 
 interface compra {
-    itens: {produto:produto,
-    quantidade:number}[]//carrinho[]
+    itens:carrinho[]//{produto:produto,quantidade:number}[]
     tipo_metodo: metodosPagamentos,
     metodo: object
 }
 
 let compras: compra[] = []
-
 const dataPagamentoBoleto: Date = new Date('2025-11-28T15:28:05.604')
-
-function fazerCompra(itens:carrinho[], metodo: metodosPagamentos, status: status, parcelas?: number) {
+function fazerCompra(itens: carrinho[]/*{produto:produto,quantidade:number}[]*/, metodo: metodosPagamentos, status: status, parcelas?: number) {
 
     //reduce para somar os valores
     let valorTotal = itens.reduce((soma, itemAtual) => {
@@ -47,10 +47,6 @@ function fazerCompra(itens:carrinho[], metodo: metodosPagamentos, status: status
     return compraCompleta;
 }
 
-interface carrinho{
-    produto:produto,
-    quantidade:number
-}
 
 const meuCarrinho: carrinho[] = [
     { produto: geladeira, quantidade: 1 },
@@ -58,8 +54,7 @@ const meuCarrinho: carrinho[] = [
     { produto:TV, quantidade:4}
 ];
 
-
-fazerCompra(meuCarrinho, cartao, status.PENDENTE,5);
-//console.log(JSON.stringify(compras, null, 2));
+fazerCompra( meuCarrinho, cartao, status.PENDENTE,5);
+console.log(JSON.stringify(compras, null, 2));
 
 
