@@ -20,7 +20,6 @@ export function metodoPgto(metodo: metodosPagamentos, valorTotal: number, status
         const debito = metodosPagamentos.DEBITO
         const cartao = metodosPagamentos.CARTAO
         const boleto = metodosPagamentos.BOLETO
-        const numparcelas = quantparcelas
 
 
         switch (metodo) {

@@ -25,11 +25,13 @@ export function gerarBoleto(valorTotal:number, status: status) {
 }
 
 interface cartao {
+
         idPgto: string
         valor: number,
         valorParcela:number,
         numParcelas:number ,
         status: string,
+        dataPagamento: Date
 }
 
 export function gerarPgtoCartao(valorTotal:number, status: status, parcelas:number,totalParcelas:number) {
@@ -39,7 +41,8 @@ export function gerarPgtoCartao(valorTotal:number, status: status, parcelas:numb
         valor: valorTotal,
         valorParcela:parcelas,
         numParcelas:totalParcelas,
-        status: status
+        status: status,
+        dataPagamento: new Date()
     }
     return novoPgto
 }
@@ -48,6 +51,7 @@ interface pix {
         idPgto: string
         valor: number,
         status: string,
+        dataPagamento: Date
 }
 
 export function gerarPgtoPix(valorTotal:number, status: status) {
@@ -55,18 +59,29 @@ export function gerarPgtoPix(valorTotal:number, status: status) {
     const novoPgto: pix = {
         idPgto: generateID(),
         valor: valorTotal,
-        status: status
+        status: status,
+        dataPagamento: new Date ()
     }
     return novoPgto
 }
 
 
+interface debito {
+    idPgto: string
+    valor: number,
+    status: string,
+    dataPagamento: Date
+}
+
+
 export function gerarPgtoDebito(valorTotal:number, status: status) {
     
-    const novoPgto: pix = {
+    const novoPgto: debito = {
         idPgto: generateID(),
         valor: valorTotal,
-        status: status
+        status: status,
+        dataPagamento: new Date()
+
     }
     return novoPgto
 }
