@@ -31,6 +31,7 @@ let day :string[] = [
         'sabado'
     
 ]
+
 console.log(day[hoje.getDay()])
 
 
