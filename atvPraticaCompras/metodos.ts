@@ -70,7 +70,4 @@ export function metodoPgto(metodo: metodosPagamentos, valorTotal: number, status
 
 }
 
-
 export { metodosPagamentos, status };
-
-

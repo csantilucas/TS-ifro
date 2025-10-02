@@ -70,7 +70,3 @@ export function gerarPgtoDebito(valorTotal:number, status: status) {
     }
     return novoPgto
 }
-
-
-
-

@@ -56,10 +56,3 @@ produtos comprados:\n`)
 
 fazerCompra([geladeira, fogao], pix, status.PENDENTE)
 console.log(compra)
-
-
-
-
-
-
-
