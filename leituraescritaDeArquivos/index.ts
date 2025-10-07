@@ -18,8 +18,8 @@ async function escrever() {
 
 async function ler() {
     const resultado = await readFile('leituraescritaDeArquivos/data/usuarios.json', 'utf-8')
-    const dados: usuario = JSON.parse(resultado)
-    console.log(resultado)
+    const dados: usuario[] = JSON.parse(resultado)
+    console.log(dados)
     
 }
 
