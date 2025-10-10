@@ -1,0 +1,21 @@
+[
+  {
+    "nome": "paulo",
+    "dataNascimento": "2004-05-15T04:00:00.000Z",
+    "pai": "Augusto",
+    "mae": "Fernanda",
+    "telefone": "(69)9 0000-1111",
+    "Endereco": {
+      "tipoLogradouro": "Alameda",
+      "nomeLogradouro": "dos anjos",
+      "numero": "1545",
+      "bairro": "Centro",
+      "municipo": {
+        "nome": "Vilhena",
+        "uf": "Rondonia"
+      }
+    },
+    "Cpf": "000,000,000-01",
+    "Matricula": "00000-1"
+  }
+]

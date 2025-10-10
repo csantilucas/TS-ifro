@@ -7,7 +7,7 @@ async function escrever() {
 }
 
 async function ler() {
-    const resposta = await readFile('data/mensagens.txt', 'utf-8')
+    const resposta = await readFile('leituraescritaDeArquivos/data/mensagens.txt', 'utf-8')
     console.log(resposta)
 }
 

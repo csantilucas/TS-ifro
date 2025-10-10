@@ -1,8 +1,8 @@
-import Municipio from "./Municipio";
-import tipoLogradouro from "./TipoLogradouro";
+import Municipio from "./Municipio.ts";
+import TipoLogradouro from "./TipoLogradouro.ts";
 
 interface Endereco {
-    tipoLogradouro: tipoLogradouro,
+    tipoLogradouro: TipoLogradouro,
     nomeLogradouro: String,
     numero: String,
     bairro: string,

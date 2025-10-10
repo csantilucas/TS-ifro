@@ -21,15 +21,6 @@ const end1: Endereco = {
 }
 
 
-const pes1: Estudante = {
-    nome:'paulo',
-    dataNascimento: new Date ('2004-5-15'),
-    //pai:'Augusto',
-    mae:'Fernanda',
-    telefone:'(69)9 0000-1111',
-    Endereco: end1,
-    Cpf:'000,000,000-01',
-    Matricula:'00000-1'
-}
-console.log(pes1)
+
+
 
