@@ -22,8 +22,33 @@ const end1: Endereco = {
 
 const arrayAlunos: Estudante[] = [
     {
-        nome: 'paulo', dataNascimento: new Date('2004-5-15'), pai:'Augusto', mae: 'Fernanda', telefone: '(69)9 0000-1111', Endereco: end1, Cpf: '000,000,000-01', Matricula: '00000-1'
+        nome: 'paulo', dataNascimento: new Date('2004-5-15'), pai: 'Augusto', mae: 'Fernanda', telefone: '(69)9 0000-1111', Endereco: end1, Cpf: '000,000,000-01', Matricula: '00000-1'
     },
 ];
 
-export {arrayAlunos}
+const aluno1: Estudante =
+{
+    nome: 'paulo',
+    dataNascimento: new Date('2004-5-15'),
+    pai: 'Augusto',
+    mae: 'Fernanda',
+    telefone: '(69)9 0000-1111',
+    Endereco: end1,
+    Cpf: '000,000,000-01',
+    Matricula: '00000-1'
+}
+const aluno2: Estudante =
+{
+    nome: 'Luiz',
+    dataNascimento: new Date('2004-5-15'),
+    pai: 'Augusto',
+    mae: 'Fernanda',
+    telefone: '(69)9 0000-1111',
+    Endereco: end1,
+    Cpf: '000,000,000-01',
+    Matricula: '00000-1'
+}
+    
+
+
+export { arrayAlunos, aluno1, aluno2 }

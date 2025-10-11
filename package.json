@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev": "tsx atvGravarDados/index.ts"
+    "dev": "tsx atvGravarDados/indexRefeicao.ts"
   },
   "keywords": [],
   "author": "",
