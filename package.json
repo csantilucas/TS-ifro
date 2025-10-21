@@ -3,8 +3,9 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
+  "type": "module",
   "scripts": {
-    "dev": "tsx atvGravarDados/indexRefeicao.ts"
+    "dev": "tsx introducao_banco_dados/src/index.ts"
   },
   "keywords": [],
   "author": "",
