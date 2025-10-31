@@ -5,7 +5,7 @@
   "main": "index.js",
   "type": "module",
   "scripts": {
-    "dev": "tsx introducao_banco_dados/src/index.ts"
+    "dev": "tsx ATV_PDV/bd.ts"
   },
   "keywords": [],
   "author": "",

@@ -18,7 +18,6 @@ const u2: Usuario = { nome: "pedro", email: "user4213@email.com", rua: "flores",
 async function addUser(usuario: Usuario) {
     const db = await dbPromise;
 
-
     const endereco = await db.run(
         'INSERT INTO endereco (rua, bairro, numero) VALUES (?, ?, ?)',
         usuario.rua,
