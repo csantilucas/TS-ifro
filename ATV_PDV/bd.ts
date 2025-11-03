@@ -1,7 +1,6 @@
 import sqlite3 from "sqlite3";
 import { open } from "sqlite"
-import { get } from "http";
-import { Compra, ItemCompra, Usuario } from "./models";
+import { ItemCompra} from "./models";
 
 export const dbPromise = open({
   filename: "dataBase.sqlite",
