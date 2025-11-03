@@ -5,7 +5,7 @@
   "main": "index.js",
   "type": "module",
   "scripts": {
-    "dev": "tsx ATV_PDV/bd.ts"
+    "dev": "tsx ATV_PDV/index.ts"
   },
   "keywords": [],
   "author": "",

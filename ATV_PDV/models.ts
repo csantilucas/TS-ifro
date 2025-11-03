@@ -5,7 +5,6 @@ export interface Usuario {
     senha: string; 
 }
 
-
 export interface Produto {
     id: number;
     nome: string;
@@ -15,24 +14,28 @@ export interface Produto {
     criadoEm: Date;
 }
 
-// Representa um item dentro de uma compra (produto + quantidade)
 export interface ItemCompra {
     id: number;
     produtoId: number;
     quantidade: number;
-    precoUnitario: number; // preço no momento da venda
-    subtotal: number;      // quantidade * precoUnitario
+    precoUnitario: number; 
+    subtotal: number;     
 }
 
-// Representa a compra/venda realizada
 export interface Compra {
     id: number;
-    usuarioId: number; // quem realizou a venda
+    usuarioId: number; 
     itens: ItemCompra[];
-    formaPagamento: "PIX" | "DEBITO" | "CREDITO";
-    descontoAplicado: number; // em percentual ou valor
+    formaPagamento: formaPGTO
+    descontoAplicado: number; 
     acrescimoAplicado: number;
     valorTotal: number;
     data: Date;
-    parcelas?: number; // se for crédito
+    parcelas?: number; 
+}
+
+enum formaPGTO{
+    PIX = "PIX",
+    DEBITO = "DEBITO",
+    CREDITO = "CREDITO"
 }
