@@ -1,11 +1,14 @@
 import sqlite3 from "sqlite3";
 import { open } from "sqlite"
-import { ItemCompra} from "./models";
+import { ItemCompra } from "../models/model_itemCompra";
+
+
 
 export const dbPromise = open({
   filename: "dataBase.sqlite",
   driver: sqlite3.Database
 })
+
 
 export async function initDB() {
   const db = await dbPromise;
@@ -61,10 +64,12 @@ export async function getDB() {
   return dbPromise;
 }
 
+
 export async function closeDB() {
   const db = await dbPromise;
   await db.close();
 }
+
 
 export async function insertUserDB(nome: string, email: string, senha: string) {
   const db = await getDB();
@@ -76,6 +81,7 @@ export async function insertUserDB(nome: string, email: string, senha: string) {
     console.log("Usuário inserido com sucesso!")
   } catch (erro) { console.error("Erro ao inserir usuário:", erro); };
 }
+
 
 export async function insertProductDB(nome: string, descricao: string, preco: number, estoque: number) {
   const db = await getDB();
@@ -90,6 +96,7 @@ export async function insertProductDB(nome: string, descricao: string, preco: nu
     console.error("Erro ao inserir produto:", error);
   }
 }
+
 
 export async function insertItemCompraDB(compraId: number, produtoId: number, quantidade: number, precoUnitario: number, subtotal: number) {
   const db = await getDB();
@@ -131,18 +138,19 @@ export async function insertCompraDB( usuarioId: number, itens: ItemCompra[], fo
 }
 
 
-
 export async function getProdutosDB() {
   const db = await getDB();
   const produtos = await db.all(`select * from produtos`);
   return produtos;
 }
 
+
 export async function getUsersDB() {
   const db = await getDB();
   const usuarios = await db.all(`select * from usuarios`);
   return usuarios;
 }
+
 
 export async function getUsuariosComprasDB(usuarioId: number) {
   const db = await getDB();
@@ -154,6 +162,7 @@ export async function getUsuariosComprasDB(usuarioId: number) {
   }
   catch (error) { console.error("Erro ao buscar usuários e compras:", error); }
 }
+
 
 export async function updateUser(id: number, nome?: string, email?: string) {
   const db = await getDB();
