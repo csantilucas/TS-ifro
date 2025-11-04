@@ -31,7 +31,7 @@ export async function createCompra( usuario: Usuario, compra: Compra, itensCompr
   }
 
   const valorFinal = valorTotal - descontoAplicado + acrescimoAplicado;
-  await insertCompraDB( usuario.id, itensCompra, compra.formaPagamento, descontoAplicado, acrescimoAplicado, valorFinal, parcelas );
+  await insertCompraDB(usuario.id, itensCompra, compra.formaPagamento, descontoAplicado, acrescimoAplicado, valorFinal, parcelas );
 }
 
 export async function listcompra(id:number){
