@@ -1,4 +1,4 @@
-import { insertCompraDB } from "../BD/bd";
+import { getUsuariosComprasDB, insertCompraDB } from "../BD/bd";
 import { Compra } from "../models/model_compra";
 import { ItemCompra } from "../models/model_itemCompra";
 import { Usuario } from "../models/model_usuario";
@@ -32,4 +32,9 @@ export async function createCompra( usuario: Usuario, compra: Compra, itensCompr
 
   const valorFinal = valorTotal - descontoAplicado + acrescimoAplicado;
   await insertCompraDB( usuario.id, itensCompra, compra.formaPagamento, descontoAplicado, acrescimoAplicado, valorFinal, parcelas );
+}
+
+export async function listcompra(id:number){
+  const compras = await getUsuariosComprasDB(id);
+  return compras;
 }
