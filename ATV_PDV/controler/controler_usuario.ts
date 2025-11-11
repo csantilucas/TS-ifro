@@ -1,10 +1,10 @@
 import { getUsersDB, insertUserDB } from "../BD/bd";
-import { Usuario } from "../models/model_usuario";
+import { Usuario, UsuarioCreate } from "../models/model_usuario";
 
 
-export function createUser(usuario: Usuario) {
-    insertUserDB(usuario.nome, usuario.email, usuario.senha);
-}
+export async function createUser(user: UsuarioCreate) {
+    return insertUserDB(user.nome, user.email, user.senha);
+  }
 
 
 
